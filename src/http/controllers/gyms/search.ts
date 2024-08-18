@@ -9,7 +9,7 @@ export async function search(request: FastifyRequest, reply: FastifyReply) {
   });
 
   const { q, page } =
-    searchGymsQuerySchema.parse(request.body);
+    searchGymsQuerySchema.parse(request.query);
 
   const searchGymUseCase = makeSearchGymsUseCase();
 
