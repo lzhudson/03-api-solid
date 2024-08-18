@@ -22,7 +22,6 @@ export default <Environment>{
   name: 'custom',
   transformMode: 'ssr',
   setup() {
-    console.log('Setup')
     const schema = randomUUID()
     const databaseURL = generateDatabaseURL(schema)
 
