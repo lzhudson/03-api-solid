@@ -14,7 +14,9 @@ describe("Validate Check-in (e2e)", () => {
   });
 
   it("should be to validate a check-in", async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, true);
+
+    const user = await prisma.user.findFirstOrThrow();
     
     const gym = await prisma.gym.create({
       data: {
@@ -23,9 +25,6 @@ describe("Validate Check-in (e2e)", () => {
         longitude: -38.551552,
       }
     })
-
-    const user = await prisma.user.findFirstOrThrow();
-
 
     let checkIn = await prisma.checkIn.create({
       data: {
